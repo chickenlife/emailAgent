@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>나만의 AI비서 - 메일편</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div class="shell">
+<aside class="sidebar"><div class="brand"><div class="brand-icon">✦</div><div><strong>나만의 AI비서</strong></div></div>
+<div class="side-controls"><button id="refresh" class="subtle">↻ 메일 확인</button></div>
+<div id="scan-status-card" class="scan-status-card" aria-live="polite">
+<div class="scan-status-row"><span id="scan-dot" class="scan-dot"></span><strong id="scan-phase">상태 확인 중</strong></div>
+<div id="scan-detail" class="scan-detail">메일 수집 상태를 조회하고 있습니다.</div>
+<div class="scan-progress-track"><div id="scan-progress-bar" class="scan-progress-bar"></div></div>
+<div id="scan-metrics" class="scan-metrics">마지막 완료: 없음</div>
+</div>
+
+<div class="side-title">수집된 신규 메일 <span id="count">0</span></div><div id="items" class="items"><div class="empty">수집된 메일이 없습니다.</div></div>
+<div class="sidebar-footer"><div id="state-dot" class="dot"></div><span id="state">연결 확인 중</span><button id="account" title="로그아웃">로그아웃</button></div></aside>
+<main class="main"><header><div><h1>메일 분석 및 RAG 근거 검색</h1><p id="subtitle">수·발신 메일의 관련 이력을 검색합니다.</p></div></header>
+<div class="columns"><section class="panel left-panel"><div class="panel-head"><div><span class="eyebrow">INCOMING MAIL</span><h2>수신 메일</h2></div></div>
+
+<div class="scroll-content" id="left-scroll"><div id="left-content" class="empty-stage"><div class="empty-illustration">✉</div><h3>분석할 메일을 선택하세요</h3><p>좌측 목록에서 메일을 선택하면 수신 내용과 관련된 과거 메일을 확인할 수 있습니다.</p></div></div></section>
+<section class="panel right-panel"><div class="panel-head"><div><span class="eyebrow">RAG REFERENCES</span><h2>RAG 참고 메일</h2></div><span class="count-pill" id="source-count">인용 0건 · 검색 0건</span></div><div class="reference-controls"><span id="reference-info">인용 메일과 검색 메일을 함께 표시합니다.</span><button id="load-more" class="subtle hidden" type="button">검색 전체 보기</button></div><div class="scroll-content" id="right-scroll"><div id="right-content" class="empty-stage"><div class="empty-illustration">▤</div><h3>참고 메일 이력</h3><p>관련 수·발신 메일 이력을 표시합니다.</p></div></div></section></div>
+<footer class="toolbar"><div id="tool-status">메일을 선택하세요</div><div class="toolbar-actions"><button id="copy" class="primary" type="button" disabled>초안 복사</button><button id="delete" class="danger" type="button" disabled>선택 삭제</button></div></footer></main></div>
+<div id="login-overlay" class="modal hidden"><div class="login-card"><h2>메일 계정으로 로그인</h2><form id="login-form"><label for="username">ID<input id="username" type="text" autocomplete="username" required></label><label for="password">PW<input id="password" type="password" autocomplete="current-password" required></label><button class="primary" type="submit" id="login-button">로그인</button></form><p id="login-error" class="error" role="alert" aria-live="polite"></p></div></div>
+<div id="toast" class="toast hidden"></div><script src="/static/app.js"></script></body></html>
